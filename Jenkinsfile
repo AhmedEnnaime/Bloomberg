@@ -13,7 +13,6 @@ pipeline {
         }
 
         stage("Testing") {
-            echo "Testing"
             steps {
                  sh " mvn -f ./pom.xml test"
             }
