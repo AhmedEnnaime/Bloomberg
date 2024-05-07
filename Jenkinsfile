@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage("Clone project") {
             steps {
-                git branch: 'master', url: 'https://github.com/AhmedEnnaime/KingsLeague.git'
+                git branch: 'master', url: 'https://github.com/AhmedEnnaime/Bloomberg.git'
             }
         }
 
