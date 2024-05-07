@@ -14,8 +14,8 @@ spring:
       ddl-auto: update
 
 logging:
-  file:
-    path: .
   level:
     root: INFO
     com.progress.bloomberg: DEBUG
+    org.springframework.web: ERROR
+
