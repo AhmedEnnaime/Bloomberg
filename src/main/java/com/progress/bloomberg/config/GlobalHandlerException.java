@@ -1,5 +1,6 @@
 package com.progress.bloomberg.config;
 
+import com.progress.bloomberg.exceptions.IdAlreadyExistsException;
 import com.progress.bloomberg.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
@@ -37,6 +38,14 @@ public class GlobalHandlerException {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(Exception.class)
     public Map<String, String> handleExceptions(Exception ex) {
+        Map<String, String> errors = new HashMap<>();
+        errors.put("error", ex.getMessage());
+        return errors;
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(IdAlreadyExistsException.class)
+    public Map<String, String> handleIdAlreadyExistsException(IdAlreadyExistsException ex) {
         Map<String, String> errors = new HashMap<>();
         errors.put("error", ex.getMessage());
         return errors;

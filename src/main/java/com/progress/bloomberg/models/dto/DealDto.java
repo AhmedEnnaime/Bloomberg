@@ -1,19 +1,18 @@
 package com.progress.bloomberg.models.dto;
 
 import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Builder
 public class DealDto {
 
-    @NotNull(message = "id of deal must not be null")
-    private Long id;
+    @NotNull(message = "id must not be null")
+    @NotEmpty(message = "id must not be empty")
+    private String id;
 
     @NotNull(message = "From Ordering currency iso code must not be null")
     @NotEmpty(message = "From Ordering currency iso code must not be empty")
