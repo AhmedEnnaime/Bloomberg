@@ -3,6 +3,8 @@ package com.progress.bloomberg.models.dto;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -27,4 +29,6 @@ public class DealDto {
     @NotNull(message = "Deal amount must not be null")
     @Min(value = 0, message = "deal amount should not be less than 0.")
     private Double dealAmount;
+
+    private LocalDateTime timestamp;
 }

@@ -19,7 +19,7 @@ public class DealServiceImpl implements DealService {
     @Override
     public DealDto create(DealDto deal) {
         if(dealRepository.existsById(deal.getId()))
-            throw new IdAlreadyExistsException("Deal with ." + deal + " already exists");
+            throw new IdAlreadyExistsException("Deal with " + deal.getId() + " already exists");
         Deal newDeal = modelMapper.map(deal, Deal.class);
         Deal savedDeal = dealRepository.save(newDeal);
         return modelMapper.map(savedDeal, DealDto.class);
