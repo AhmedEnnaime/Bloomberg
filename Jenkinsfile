@@ -1,9 +1,4 @@
 pipeline {
-    environment {
-        registry = "ahmedennaime/kingsleague_team-service"
-        registryCredential = 'DOCKER_CRED'
-        dockerImage = ''
-    }
     agent any
     stages {
         stage("Clone project") {
@@ -14,9 +9,7 @@ pipeline {
 
         stage("Testing") {
             steps {
-                withMaven {
-                    sh " mvn -f ./pom.xml test"
-                }
+                 sh " mvn -f ./pom.xml test"
             }
         }
 
@@ -30,24 +23,6 @@ pipeline {
                     )
                 }
 
-            }
-        }
-
-        stage('Building our image') {
-            steps {
-                script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                }
-            }
-        }
-
-        stage('Deploy our image') {
-            steps {
-                script {
-                    docker.withRegistry( '', registryCredential ) {
-                        dockerImage.push()
-                    }
-                }
             }
         }
     }
