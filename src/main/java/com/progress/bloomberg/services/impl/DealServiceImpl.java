@@ -21,6 +21,7 @@ public class DealServiceImpl implements DealService {
         if(dealRepository.existsById(deal.getId()))
             throw new IdAlreadyExistsException("Deal with " + deal.getId() + " already exists");
         Deal newDeal = modelMapper.map(deal, Deal.class);
+        newDeal.setId(deal.getId());
         Deal savedDeal = dealRepository.save(newDeal);
         return modelMapper.map(savedDeal, DealDto.class);
     }
