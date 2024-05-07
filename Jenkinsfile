@@ -14,7 +14,9 @@ pipeline {
 
         stage("Testing") {
             steps {
-                 sh " mvn -f ./pom.xml test"
+                withMaven {
+                    sh " mvn -f ./pom.xml test"
+                }
             }
         }
 
