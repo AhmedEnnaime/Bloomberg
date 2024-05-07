@@ -12,9 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class DealDto {
 
-    @NotNull(message = "Ordering currency iso code must not be null")
-    @NotEmpty(message = "Ordering currency iso code must not be empty")
-    @Size(max = 255, min = 3, message = "Deal id should be between 3 and 255 character.")
+    @NotNull(message = "id of deal must not be null")
     private Long id;
 
     @NotNull(message = "From Ordering currency iso code must not be null")
