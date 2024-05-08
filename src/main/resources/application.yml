@@ -12,7 +12,12 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - prometheus
 logging:
   level:
     root: INFO
